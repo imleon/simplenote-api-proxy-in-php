@@ -1,9 +1,6 @@
 <?php
 class SimpleNote
 {
-
-    const BASE_URL = "http://192.168.1.20/simplenote/";
-    
     const LOGIN_URL = "http://simple-note.appspot.com/api/login";
     const INDEX_URL = "http://simple-note.appspot.com/api/index";
     const NOTE_URL = "http://simple-note.appspot.com/api/note";
@@ -14,7 +11,7 @@ class SimpleNote
    
     public function SimpleNote()
     {
-        $method = substr("http://".$_SERVER["HTTP_HOST"].$_SERVER["REDIRECT_URL"],strlen(self::BASE_URL));
+		$method = basename($_SERVER[REDIRECT_URL]);
         $payload = @file_get_contents("php://input");
         $params = $_SERVER["QUERY_STRING"];
 
