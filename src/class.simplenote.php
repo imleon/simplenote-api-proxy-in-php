@@ -2,10 +2,6 @@
 class SimpleNote
 {
 
-//baseurl
-//是否https
-//cookie问题
-
     const BASE_URL = "http://192.168.1.20/simplenote/";
     
     const LOGIN_URL = "http://simple-note.appspot.com/api/login";
@@ -22,14 +18,6 @@ class SimpleNote
         $payload = @file_get_contents("php://input");
         $params = $_SERVER["QUERY_STRING"];
 
-/*
-		echo "http://".$_SERVER["HTTP_HOST"].$_SERVER["REDIRECT_URL"];
-		echo self::BASE_URL;
-
-		echo "\nmethod:\n".$method;
-		echo "\npayload:\n".$payload;
-		echo "\nparams:\n".$params;
-*/
         if ($method == "login")                                             //obtain a token
             echo $this->docurl(self::LOGIN_URL, $payload);
         elseif ($method == "index")                                         //get the note index
